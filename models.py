@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class Pet(db.Model):
     """Defines class of pets. It is the pets table in the database"""
 
@@ -21,6 +22,7 @@ class Pet(db.Model):
     available = db.Column(db.Boolean,
                     nullable=False,
                     default=True)
+
 
 def connect_db(app):
     """Connect this database to provided Flask app."""

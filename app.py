@@ -19,6 +19,7 @@ def show_homepage():
 
     return render_template('homepage.html', pets=pets)
 
+
 @app.route('/add', methods=["GET", "POST"])
 def add_pet():
     """Pet add form; handle adding"""
@@ -39,7 +40,7 @@ def add_pet():
                   notes=notes)
         db.session.add(pet)
         db.session.commit()
-        
+       
         return redirect('/')
 
     else:
