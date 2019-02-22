@@ -18,6 +18,9 @@
         {{ pet.name }} was adopted :)
         {% endif %}
     {% endfor %}
+    <form action="/add">
+        <button class="btn btn-success" type="submit">Add a Pet</button>
+    </form>
 
     </div>
 {% endblock %}
