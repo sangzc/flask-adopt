@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    And as it is such, so it is such, onto you. PETS
+{% endblock %}
+
+{% block content %}
+    <h1>Pets</h1>
+
+    {% for pet in pets %}
+
+    <div class="container">
+        <img src="{{ pet.photo_url }}">
+
+        {% if pet.available %}
+        {{ pet.name }} is <b>available</b>!
+            {% else %}
+        {{ pet.name }} was adopted :)
+        {% endif %}
+    {% endfor %}
+
+    </div>
+{% endblock %}

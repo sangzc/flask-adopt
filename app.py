@@ -11,3 +11,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 connect_db(app)
 db.create_all()
+
+
+@app.route('/')
+def show_homepage():
+    """ Shows homepage with list of available pets. """
+
+    pets = Pet.query.all()
+
+    return render_template('homepage.html', pets=pets)
