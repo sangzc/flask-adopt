@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 from forms import AddPetForm, EditPetPage
+from secrets import PETFINDER_API_KEY
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "cheese_sombreros"
