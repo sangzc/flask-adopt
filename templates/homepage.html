@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Pets</h1>
+    <h1>Rare Pets</h1>
 
     {% for pet in pets %}
 
@@ -22,5 +22,12 @@
         <button class="btn btn-success" type="submit">Add a Pet</button>
     </form>
 
+    </div>
+
+    <div class="container">
+        <h2>Random Petfinder Pet!</h2>
+        <img src="{{ image }}">
+        <br>
+        {{ name }}, {{ age }}, and is <b>available</b>!
     </div>
 {% endblock %}

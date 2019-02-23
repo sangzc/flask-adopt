@@ -3,6 +3,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Pet
 from forms import AddPetForm, EditPetPage
 from secrets import PETFINDER_API_KEY
+from petfinder_API import get_info_random_pet
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "cheese_sombreros"
@@ -17,8 +19,14 @@ def show_homepage():
     """ Shows homepage with list of available pets. """
 
     pets = Pet.query.all()
+    rando_pet = get_info_random_pet()
 
-    return render_template('homepage.html', pets=pets)
+    name = rando_pet['petfinder']['pet']['name']['$t']
+    age = rando_pet['petfinder']['pet']['age']['$t']
+    image = rando_pet['petfinder']['pet']['media']['photos']['photo'][0]['$t']
+
+    return render_template('homepage.html', pets=pets,
+                            name=name, age=age, image=image)
 
 
 @app.route('/add', methods=["GET", "POST"])
